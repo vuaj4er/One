@@ -30,11 +30,16 @@
 @synthesize boxRect = _boxRect;
 @synthesize smartRect = _smartRect;
 
+- (IBAction)resetPress:(UIButton *)sender
+{
+    [self locSetToDefault];
+    [self.boardView setNeedsDisplay];
+}
+
 - (void)setBoardView:(BoardView *)boardView
 {
     _boardView = boardView;
-    self.boxRect = CGRectMake(30, 520, 3008*0.2, 2000*0.2);
-    self.smartRect = CGRectMake(20, 30, 386*0.8, 313*0.8);
+    [self locSetToDefault];
     
     //[self.boardView addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self.boardView action:@selector(pan:)]];
     [self.boardView addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)]];
@@ -52,7 +57,7 @@
 -(void)setSmartRect:(CGRect)smartRect
 {
     //if (_smartRect != smartRect) {
-    if ([self.oneBrain ifStuff:self.smartRect insideBox:self.boxRect]) {
+    if ([self.oneBrain ifStuff:smartRect insideBox:self.boxRect]) {
         smartRect = CGRectMake(self.boxRect.origin.x + 120, self.boxRect.origin.y + 100, self.boxRect.size.width*0.3, self.boxRect.size.width*0.3 * (smartRect.size.height / smartRect.size.width));
     }
     _smartRect = smartRect;
@@ -64,6 +69,12 @@
 {
     _boxRect = boxRect;
     [self.boardView setNeedsDisplay];
+}
+
+- (void)locSetToDefault
+{    
+    self.boxRect = CGRectMake(30, 520, 3008*0.2, 2000*0.2);
+    self.smartRect = CGRectMake(20, 30, 386*0.8, 313*0.8);
 }
 
 - (void)pan:(UIPanGestureRecognizer *)gesture

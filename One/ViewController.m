@@ -15,6 +15,8 @@
 @property (nonatomic, strong) IBOutlet BoardView *boardView;
 @property (nonatomic, strong) OneBrain *oneBrain;
 
+//@property (nonatomic) CGRect currentStuff;
+@property (nonatomic) int currentStuff;
 @property (nonatomic) CGRect boxRect;
 @property (nonatomic) CGRect smartRect;
 @property (nonatomic) BOOL smartIsInsideBox;    //YES: inside, NO: outside
@@ -28,6 +30,7 @@
 @synthesize boardView = _boardView;
 @synthesize oneBrain = _oneBrain;
 
+@synthesize currentStuff = _currentStuff;
 @synthesize boxRect = _boxRect;
 @synthesize smartRect = _smartRect;
 @synthesize smartIsInsideBox = _smartIsInsideBox;
@@ -85,8 +88,23 @@
     if ((gesture.state == UIGestureRecognizerStateChanged) ||
         (gesture.state == UIGestureRecognizerStateEnded)) {
         CGPoint translation = [gesture translationInView:self.boardView];
-        self.smartRect = CGRectMake(self.smartRect.origin.x + translation.x, self.smartRect.origin.y + translation.y, self.smartRect.size.width, self.smartRect.size.height);
+        //if (CGRectEqualToRect(self.currentStuff, self.smartRect)) {
+        if (self.currentStuff == 1) {
+            self.smartRect = CGRectMake(self.smartRect.origin.x + translation.x, self.smartRect.origin.y + translation.y, self.smartRect.size.width, self.smartRect.size.height);
+            //self.currentStuff = CGRectMake(self.smartRect.origin.x + translation.x, self.smartRect.origin.y + translation.y, self.smartRect.size.width, self.smartRect.size.height);
+        }
         [gesture setTranslation:CGPointZero inView:self.boardView];
+    }
+    else if (gesture.state == UIGestureRecognizerStateBegan) {
+        CGPoint p = [gesture locationInView:self.boardView];
+        NSLog(@"( %f, %f )", p.x, p.y);
+        if ([self.oneBrain ifPoint:p insideRect:self.smartRect]) {
+            //self.currentStuff = self.smartRect;
+            self.currentStuff = 1;
+        }
+        else {
+            self.currentStuff = 0;
+        }
     }
 }
 

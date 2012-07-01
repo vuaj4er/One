@@ -11,5 +11,6 @@
 @interface OneBrain : NSObject
 
 - (BOOL)ifStuff:(CGRect)stuffRect insideBox:(CGRect)boxRect;
+- (BOOL)ifPoint:(CGPoint)p insideRect:(CGRect)rect;
 
 @end

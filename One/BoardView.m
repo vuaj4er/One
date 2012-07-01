@@ -11,21 +11,24 @@
 @interface BoardView()
 
 @property (nonatomic, weak) UIImage *setImage;
+@property (nonatomic) CGRect setRect;
 @property (nonatomic, weak) UIImage *smartImage;
-@property (nonatomic) CGPoint smartPoint;
+@property (nonatomic) CGRect smartRect;
 
 @end
 
 @implementation BoardView
 
 @synthesize setImage = _setImage;
+@synthesize setRect = _setRect;
 @synthesize smartImage = _smartImage;
-@synthesize smartPoint = _smartPoint;
+@synthesize smartRect = _smartRect;
 
 
 - (UIImage *)setImage
 {
     if (!_setImage) {
+        self.setRect = CGRectMake(30, 520, 3008*0.2, 2000*0.2);
         _setImage = [UIImage imageNamed:@"set.jpg"];
     }
     return _setImage;
@@ -34,25 +37,31 @@
 - (UIImage *)smartImage
 {
     if (!_smartImage) {
-        self.smartPoint = CGPointMake(20, 30);
+        self.smartRect = CGRectMake(20, 30, 386*0.8, 313*0.8);
         _smartImage = [UIImage imageNamed:@"smart.jpg"];
     }
     return _smartImage;
 }
 
--(void)setSmartPoint:(CGPoint)smartPoint
+-(void)setSmartRect:(CGRect)smartRect
 {
-    //if (_smartPoint != smartPoint) {
-        _smartPoint = smartPoint;
+    //if (_smartRect != smartRect) {
+        _smartRect = smartRect;
         [self setNeedsDisplay];
     //}
+}
+
+-(void)setSetRect:(CGRect)setRect
+{
+    _setRect = setRect;
+    [self setNeedsDisplay];
 }
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self.smartImage drawAtPoint:self.smartPoint];
+        [self.smartImage drawInRect:self.smartRect];
         NSLog(@"initWithFrame");
     }
     return self;
@@ -63,15 +72,15 @@
     if ((gesture.state == UIGestureRecognizerStateChanged) ||
         (gesture.state == UIGestureRecognizerStateEnded)) {
         CGPoint translation = [gesture translationInView:self];
-        self.smartPoint = CGPointMake(self.smartPoint.x + translation.x, self.smartPoint.y + translation.y);
+        self.smartRect = CGRectMake(self.smartRect.origin.x + translation.x, self.smartRect.origin.y + translation.y, self.smartRect.size.width, self.smartRect.size.height);
         [gesture setTranslation:CGPointZero inView:self];
     }
 }
 
 - (void)drawRect:(CGRect)rect
 {
-    [self.setImage drawInRect:CGRectMake(30, 520, 602, 400)];
-    [self.smartImage drawAtPoint:self.smartPoint];
+    [self.setImage drawInRect:self.setRect];
+    [self.smartImage drawInRect:self.smartRect];
 }
 
 

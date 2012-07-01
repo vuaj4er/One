@@ -8,9 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@class BoardView;
+
+@protocol BoardViewDataSource <NSObject>
+
+- (CGRect)smartLocInBoardView:(BoardView *)sender;
+- (CGRect)setLocInBoardView:(BoardView *)sender;
+
+@end
+
 @interface BoardView : UIView
 
-
-- (void)pan:(UIPanGestureRecognizer *)gesture;
+@property (nonatomic, weak) IBOutlet id <BoardViewDataSource> dataSource;
 
 @end

@@ -12,11 +12,10 @@
 
 @interface ViewController () <BoardViewDataSource>
 
-//@property (nonatomic, weak) UIImage *smartImage;
 @property (nonatomic, strong) IBOutlet BoardView *boardView;
 @property (nonatomic, strong) OneBrain *oneBrain;
 
-@property (nonatomic) CGRect setRect;
+@property (nonatomic) CGRect boxRect;
 @property (nonatomic) CGRect smartRect;
 
 
@@ -28,13 +27,13 @@
 @synthesize boardView = _boardView;
 @synthesize oneBrain = _oneBrain;
 
-@synthesize setRect = _setRect;
+@synthesize boxRect = _boxRect;
 @synthesize smartRect = _smartRect;
 
 - (void)setBoardView:(BoardView *)boardView
 {
     _boardView = boardView;
-    self.setRect = CGRectMake(30, 520, 3008*0.2, 2000*0.2);
+    self.boxRect = CGRectMake(30, 520, 3008*0.2, 2000*0.2);
     self.smartRect = CGRectMake(20, 30, 386*0.8, 313*0.8);
     
     //[self.boardView addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self.boardView action:@selector(pan:)]];
@@ -53,17 +52,17 @@
 -(void)setSmartRect:(CGRect)smartRect
 {
     //if (_smartRect != smartRect) {
-    if ([self.oneBrain ifStuff:self.smartRect insideBox:self.setRect]) {
-        smartRect = CGRectMake(self.setRect.origin.x + 120, self.setRect.origin.y + 100, self.setRect.size.width*0.3, self.setRect.size.width*0.3 * (smartRect.size.height / smartRect.size.width));
+    if ([self.oneBrain ifStuff:self.smartRect insideBox:self.boxRect]) {
+        smartRect = CGRectMake(self.boxRect.origin.x + 120, self.boxRect.origin.y + 100, self.boxRect.size.width*0.3, self.boxRect.size.width*0.3 * (smartRect.size.height / smartRect.size.width));
     }
     _smartRect = smartRect;
     [self.boardView setNeedsDisplay];
     //}
 }
 
--(void)setSetRect:(CGRect)setRect
+-(void)setBoxRect:(CGRect)boxRect
 {
-    _setRect = setRect;
+    _boxRect = boxRect;
     [self.boardView setNeedsDisplay];
 }
 
@@ -82,9 +81,9 @@
     return self.smartRect;
 }
 
-- (CGRect)setLocInBoardView:(BoardView *)sender
+- (CGRect)boxLocInBoardView:(BoardView *)sender
 {
-    return self.setRect;
+    return self.boxRect;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

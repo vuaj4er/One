@@ -7,31 +7,19 @@
 //
 
 #import "ViewController.h"
+#import "BoardView.h"
 
 @interface ViewController ()
 
-@property (nonatomic, weak) UIImageView *smartImageView;
+//@property (nonatomic, weak) UIImage *smartImage;
+@property (nonatomic, weak) IBOutlet BoardView *boardView;
 
 @end
 
 @implementation ViewController
 
-@synthesize smartImageView = _smartImageView;
-
-- (void)setSmartImageView:(UIImageView *)smartImageView
-{
-    _smartImageView = smartImageView;
-    [self.smartImageView addGestureRecognizer:[[UIPanGestureRecognizer alloc] init]];
-}
-
-- (void)pan:(UIPanGestureRecognizer *)gesture withImageView:(UIImageView *)imageView
-{
-    if ((gesture.state == UIGestureRecognizerStateChanged) ||
-        (gesture.state == UIGestureRecognizerStateEnded)) {
-        CGPoint panPoint = [gesture translationInView:self.view];
-        
-    }
-}
+//@synthesize smartImage = _smartImage;
+@synthesize boardView = _boardView;
      
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {

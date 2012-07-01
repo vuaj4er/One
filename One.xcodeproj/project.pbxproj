@@ -22,6 +22,7 @@
 		CE211AD015A0067000BEAB03 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE211ACE15A0067000BEAB03 /* InfoPlist.strings */; };
 		CE211AD315A0067000BEAB03 /* OneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE211AD215A0067000BEAB03 /* OneTests.m */; };
 		CE211AE115A0153600BEAB03 /* smart.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CE211AE015A0153600BEAB03 /* smart.jpg */; };
+		CE211AE515A03D7200BEAB03 /* BoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE211AE415A03D7200BEAB03 /* BoardView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		CE211AD115A0067000BEAB03 /* OneTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OneTests.h; sourceTree = "<group>"; };
 		CE211AD215A0067000BEAB03 /* OneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OneTests.m; sourceTree = "<group>"; };
 		CE211AE015A0153600BEAB03 /* smart.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = smart.jpg; sourceTree = "<group>"; };
+		CE211AE315A03D7200BEAB03 /* BoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardView.h; sourceTree = "<group>"; };
+		CE211AE415A03D7200BEAB03 /* BoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +125,8 @@
 				CE211ABC15A0066F00BEAB03 /* ViewController.h */,
 				CE211AE015A0153600BEAB03 /* smart.jpg */,
 				CE211ABD15A0066F00BEAB03 /* ViewController.m */,
+				CE211AE315A03D7200BEAB03 /* BoardView.h */,
+				CE211AE415A03D7200BEAB03 /* BoardView.m */,
 				CE211AAB15A0066F00BEAB03 /* Supporting Files */,
 			);
 			path = One;
@@ -268,6 +273,7 @@
 				CE211AB115A0066F00BEAB03 /* main.m in Sources */,
 				CE211AB515A0066F00BEAB03 /* AppDelegate.m in Sources */,
 				CE211ABE15A0066F00BEAB03 /* ViewController.m in Sources */,
+				CE211AE515A03D7200BEAB03 /* BoardView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

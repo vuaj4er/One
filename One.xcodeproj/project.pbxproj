@@ -21,6 +21,7 @@
 		CE211AC815A0067000BEAB03 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE211AA615A0066F00BEAB03 /* Foundation.framework */; };
 		CE211AD015A0067000BEAB03 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE211ACE15A0067000BEAB03 /* InfoPlist.strings */; };
 		CE211AD315A0067000BEAB03 /* OneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE211AD215A0067000BEAB03 /* OneTests.m */; };
+		CE211AE115A0153600BEAB03 /* smart.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CE211AE015A0153600BEAB03 /* smart.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,22 +39,23 @@
 		CE211AA415A0066F00BEAB03 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CE211AA615A0066F00BEAB03 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CE211AA815A0066F00BEAB03 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		CE211AAC15A0066F00BEAB03 /* One-Info.plist */ = {isa = PBXFileReference; path = "One-Info.plist"; sourceTree = "<group>"; };
+		CE211AAC15A0066F00BEAB03 /* One-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "One-Info.plist"; sourceTree = "<group>"; };
 		CE211AAE15A0066F00BEAB03 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CE211AB015A0066F00BEAB03 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		CE211AB215A0066F00BEAB03 /* One-Prefix.pch */ = {isa = PBXFileReference; path = "One-Prefix.pch"; sourceTree = "<group>"; };
-		CE211AB315A0066F00BEAB03 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		CE211AB215A0066F00BEAB03 /* One-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "One-Prefix.pch"; sourceTree = "<group>"; };
+		CE211AB315A0066F00BEAB03 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CE211AB415A0066F00BEAB03 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		CE211AB715A0066F00BEAB03 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		CE211ABA15A0066F00BEAB03 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		CE211ABC15A0066F00BEAB03 /* ViewController.h */ = {isa = PBXFileReference; path = ViewController.h; sourceTree = "<group>"; };
+		CE211ABC15A0066F00BEAB03 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		CE211ABD15A0066F00BEAB03 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		CE211AC415A0067000BEAB03 /* OneTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OneTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE211AC515A0067000BEAB03 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		CE211ACD15A0067000BEAB03 /* OneTests-Info.plist */ = {isa = PBXFileReference; path = "OneTests-Info.plist"; sourceTree = "<group>"; };
+		CE211ACD15A0067000BEAB03 /* OneTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OneTests-Info.plist"; sourceTree = "<group>"; };
 		CE211ACF15A0067000BEAB03 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		CE211AD115A0067000BEAB03 /* OneTests.h */ = {isa = PBXFileReference; path = OneTests.h; sourceTree = "<group>"; };
+		CE211AD115A0067000BEAB03 /* OneTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OneTests.h; sourceTree = "<group>"; };
 		CE211AD215A0067000BEAB03 /* OneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OneTests.m; sourceTree = "<group>"; };
+		CE211AE015A0153600BEAB03 /* smart.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = smart.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				CE211AB615A0066F00BEAB03 /* MainStoryboard_iPhone.storyboard */,
 				CE211AB915A0066F00BEAB03 /* MainStoryboard_iPad.storyboard */,
 				CE211ABC15A0066F00BEAB03 /* ViewController.h */,
+				CE211AE015A0153600BEAB03 /* smart.jpg */,
 				CE211ABD15A0066F00BEAB03 /* ViewController.m */,
 				CE211AAB15A0066F00BEAB03 /* Supporting Files */,
 			);
@@ -227,6 +230,7 @@
 				CE211AAF15A0066F00BEAB03 /* InfoPlist.strings in Resources */,
 				CE211AB815A0066F00BEAB03 /* MainStoryboard_iPhone.storyboard in Resources */,
 				CE211ABB15A0066F00BEAB03 /* MainStoryboard_iPad.storyboard in Resources */,
+				CE211AE115A0153600BEAB03 /* smart.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,6 +447,7 @@
 				CE211AD815A0067000BEAB03 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CE211AD915A0067000BEAB03 /* Build configuration list for PBXNativeTarget "OneTests" */ = {
 			isa = XCConfigurationList;
@@ -451,6 +456,7 @@
 				CE211ADB15A0067000BEAB03 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -17,6 +17,7 @@
 
 @property (nonatomic) CGRect boxRect;
 @property (nonatomic) CGRect smartRect;
+@property (nonatomic) BOOL smartIsInsideBox;    //YES: inside, NO: outside
 
 
 @end
@@ -29,6 +30,7 @@
 
 @synthesize boxRect = _boxRect;
 @synthesize smartRect = _smartRect;
+@synthesize smartIsInsideBox = _smartIsInsideBox;
 
 - (IBAction)resetPress:(UIButton *)sender
 {
@@ -58,7 +60,7 @@
 {
     //if (_smartRect != smartRect) {
     if ([self.oneBrain ifStuff:smartRect insideBox:self.boxRect]) {
-        smartRect = CGRectMake(self.boxRect.origin.x + 120, self.boxRect.origin.y + 100, self.boxRect.size.width*0.3, self.boxRect.size.width*0.3 * (smartRect.size.height / smartRect.size.width));
+        self.smartIsInsideBox = YES;
     }
     _smartRect = smartRect;
     [self.boardView setNeedsDisplay];
@@ -75,6 +77,7 @@
 {    
     self.boxRect = CGRectMake(30, 520, 3008*0.2, 2000*0.2);
     self.smartRect = CGRectMake(20, 30, 386*0.8, 313*0.8);
+    self.smartIsInsideBox = NO;
 }
 
 - (void)pan:(UIPanGestureRecognizer *)gesture
@@ -89,6 +92,9 @@
 
 - (CGRect)smartLocInBoardView:(BoardView *)sender
 {
+    if (self.smartIsInsideBox) {
+        return CGRectMake(self.boxRect.origin.x + 120, self.boxRect.origin.y + 100, self.smartRect.size.width*0.6, self.smartRect.size.height*0.6);
+    }
     return self.smartRect;
 }
 

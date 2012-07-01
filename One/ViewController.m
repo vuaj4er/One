@@ -8,14 +8,17 @@
 
 #import "ViewController.h"
 #import "BoardView.h"
+#import "OneBrain.h"
 
 @interface ViewController () <BoardViewDataSource>
 
 //@property (nonatomic, weak) UIImage *smartImage;
-@property (nonatomic, weak) IBOutlet BoardView *boardView;
+@property (nonatomic, strong) IBOutlet BoardView *boardView;
+@property (nonatomic, strong) OneBrain *oneBrain;
 
 @property (nonatomic) CGRect setRect;
 @property (nonatomic) CGRect smartRect;
+
 
 @end
 
@@ -23,6 +26,7 @@
 
 //@synthesize smartImage = _smartImage;
 @synthesize boardView = _boardView;
+@synthesize oneBrain = _oneBrain;
 
 @synthesize setRect = _setRect;
 @synthesize smartRect = _smartRect;
@@ -33,16 +37,25 @@
     self.setRect = CGRectMake(30, 520, 3008*0.2, 2000*0.2);
     self.smartRect = CGRectMake(20, 30, 386*0.8, 313*0.8);
     
-    NSLog(@"set Rects");
-    
     //[self.boardView addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self.boardView action:@selector(pan:)]];
     [self.boardView addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)]];
     self.boardView.dataSource = self;
 }
 
+- (OneBrain *)oneBrain
+{
+    if (!_oneBrain) {
+        _oneBrain = [[OneBrain alloc] init];
+    }
+    return _oneBrain;
+}
+
 -(void)setSmartRect:(CGRect)smartRect
 {
     //if (_smartRect != smartRect) {
+    if ([self.oneBrain ifStuff:self.smartRect insideBox:self.setRect]) {
+        smartRect = CGRectMake(self.setRect.origin.x + 120, self.setRect.origin.y + 100, self.setRect.size.width*0.3, self.setRect.size.width*0.3 * (smartRect.size.height / smartRect.size.width));
+    }
     _smartRect = smartRect;
     [self.boardView setNeedsDisplay];
     //}
@@ -66,7 +79,6 @@
 
 - (CGRect)smartLocInBoardView:(BoardView *)sender
 {
-    NSLog(@"get smartLoc");
     return self.smartRect;
 }
 

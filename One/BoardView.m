@@ -81,7 +81,6 @@
 {
     //[self.setImage drawInRect:self.setRect];
     //[self.smartImage drawInRect:self.smartRect];
-    NSLog(@"drawRect");
     [self.setImage drawInRect:[self.dataSource setLocInBoardView:self]];
     [self.smartImage drawInRect:[self.dataSource smartLocInBoardView:self]];
 

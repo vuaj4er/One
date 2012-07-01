@@ -24,6 +24,7 @@
 		CE211AE115A0153600BEAB03 /* smart.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CE211AE015A0153600BEAB03 /* smart.jpg */; };
 		CE211AE515A03D7200BEAB03 /* BoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE211AE415A03D7200BEAB03 /* BoardView.m */; };
 		CE211AE915A0506A00BEAB03 /* set.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CE211AE815A0506A00BEAB03 /* set.jpg */; };
+		CE211AEC15A08C9400BEAB03 /* OneBrain.m in Sources */ = {isa = PBXBuildFile; fileRef = CE211AEB15A08C9400BEAB03 /* OneBrain.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,8 @@
 		CE211AE315A03D7200BEAB03 /* BoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardView.h; sourceTree = "<group>"; };
 		CE211AE415A03D7200BEAB03 /* BoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardView.m; sourceTree = "<group>"; };
 		CE211AE815A0506A00BEAB03 /* set.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = set.jpg; sourceTree = "<group>"; };
+		CE211AEA15A08C9300BEAB03 /* OneBrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneBrain.h; sourceTree = "<group>"; };
+		CE211AEB15A08C9400BEAB03 /* OneBrain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneBrain.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +131,8 @@
 				CE211AE015A0153600BEAB03 /* smart.jpg */,
 				CE211AE815A0506A00BEAB03 /* set.jpg */,
 				CE211ABD15A0066F00BEAB03 /* ViewController.m */,
+				CE211AEA15A08C9300BEAB03 /* OneBrain.h */,
+				CE211AEB15A08C9400BEAB03 /* OneBrain.m */,
 				CE211AE315A03D7200BEAB03 /* BoardView.h */,
 				CE211AE415A03D7200BEAB03 /* BoardView.m */,
 				CE211AAB15A0066F00BEAB03 /* Supporting Files */,
@@ -278,6 +283,7 @@
 				CE211AB515A0066F00BEAB03 /* AppDelegate.m in Sources */,
 				CE211ABE15A0066F00BEAB03 /* ViewController.m in Sources */,
 				CE211AE515A03D7200BEAB03 /* BoardView.m in Sources */,
+				CE211AEC15A08C9400BEAB03 /* OneBrain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -21,6 +21,13 @@
 //@synthesize smartImage = _smartImage;
 @synthesize boardView = _boardView;
      
+- (void)setBoardView:(BoardView *)boardView
+{
+    _boardView = boardView;
+    [self.boardView addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self.boardView
+                                                                                 action:@selector(pan:)]];
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return YES;

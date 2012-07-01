@@ -10,4 +10,7 @@
 
 @interface BoardView : UIView
 
+
+- (void)pan:(UIPanGestureRecognizer *)gesture;
+
 @end

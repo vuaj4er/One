@@ -10,6 +10,7 @@
 
 @interface BoardView()
 
+@property (nonatomic, weak) UIImage *setImage;
 @property (nonatomic, weak) UIImage *smartImage;
 @property (nonatomic) CGPoint smartPoint;
 
@@ -17,8 +18,18 @@
 
 @implementation BoardView
 
+@synthesize setImage = _setImage;
 @synthesize smartImage = _smartImage;
 @synthesize smartPoint = _smartPoint;
+
+
+- (UIImage *)setImage
+{
+    if (!_setImage) {
+        _setImage = [UIImage imageNamed:@"set.jpg"];
+    }
+    return _setImage;
+}
 
 - (UIImage *)smartImage
 {
@@ -59,6 +70,7 @@
 
 - (void)drawRect:(CGRect)rect
 {
+    [self.setImage drawInRect:CGRectMake(30, 520, 602, 400)];
     [self.smartImage drawAtPoint:self.smartPoint];
 }
 

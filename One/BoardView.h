@@ -13,6 +13,7 @@
 @protocol BoardViewDataSource <NSObject>
 
 - (CGRect)smartLocInBoardView:(BoardView *)sender;
+- (CGRect)moneyLocInBoardView:(BoardView *)sender;
 - (CGRect)boxLocInBoardView:(BoardView *)sender;
 
 @end

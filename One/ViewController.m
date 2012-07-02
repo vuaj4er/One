@@ -20,6 +20,8 @@
 @property (nonatomic) CGRect boxRect;
 @property (nonatomic) CGRect smartRect;
 @property (nonatomic) BOOL smartIsInsideBox;    //YES: inside, NO: outside
+@property (nonatomic) CGRect moneyRect;
+@property (nonatomic) BOOL moneyIsInsideBox;    //YES: inside, NO: outside
 
 
 @end
@@ -34,6 +36,8 @@
 @synthesize boxRect = _boxRect;
 @synthesize smartRect = _smartRect;
 @synthesize smartIsInsideBox = _smartIsInsideBox;
+@synthesize moneyRect = _moneyRect;
+@synthesize moneyIsInsideBox = _moneyIsInsideBox;
 
 - (IBAction)resetPress:(UIButton *)sender
 {
@@ -61,13 +65,24 @@
 
 -(void)setSmartRect:(CGRect)smartRect
 {
-    //if (_smartRect != smartRect) {
-    if ([self.oneBrain ifStuff:smartRect insideBox:self.boxRect]) {
-        self.smartIsInsideBox = YES;
+    if (!CGRectEqualToRect(_smartRect, smartRect)) {
+        if ([self.oneBrain ifStuff:smartRect insideBox:self.boxRect]) {
+            self.smartIsInsideBox = YES;
+        }
+        _smartRect = smartRect;
+        [self.boardView setNeedsDisplay];
     }
-    _smartRect = smartRect;
-    [self.boardView setNeedsDisplay];
-    //}
+}
+
+-(void)setMoneyRect:(CGRect)moneyRect
+{
+    if (!CGRectEqualToRect(_moneyRect, moneyRect)) {
+        if ([self.oneBrain ifStuff:moneyRect insideBox:self.boxRect]) {
+            self.moneyIsInsideBox = YES;
+        }
+        _moneyRect = moneyRect;
+        [self.boardView setNeedsDisplay];
+    }
 }
 
 -(void)setBoxRect:(CGRect)boxRect
@@ -79,8 +94,10 @@
 - (void)locSetToDefault
 {    
     self.boxRect = CGRectMake(30, 520, 3008*0.2, 2000*0.2);
-    self.smartRect = CGRectMake(20, 30, 386*0.8, 313*0.8);
+    self.smartRect = CGRectMake(20, 40, 386*0.8, 313*0.8);
     self.smartIsInsideBox = NO;
+    self.moneyRect = CGRectMake(self.smartRect.origin.x + self.smartRect.size.width + 20, 30, 386*0.8, 313*0.8);
+    self.moneyIsInsideBox = NO;
 }
 
 - (void)pan:(UIPanGestureRecognizer *)gesture
@@ -93,14 +110,19 @@
             self.smartRect = CGRectMake(self.smartRect.origin.x + translation.x, self.smartRect.origin.y + translation.y, self.smartRect.size.width, self.smartRect.size.height);
             //self.currentStuff = CGRectMake(self.smartRect.origin.x + translation.x, self.smartRect.origin.y + translation.y, self.smartRect.size.width, self.smartRect.size.height);
         }
+        else if (self.currentStuff == 2) {
+            self.moneyRect = CGRectMake(self.moneyRect.origin.x + translation.x, self.moneyRect.origin.y + translation.y, self.moneyRect.size.width, self.moneyRect.size.height);
+        }
         [gesture setTranslation:CGPointZero inView:self.boardView];
     }
     else if (gesture.state == UIGestureRecognizerStateBegan) {
         CGPoint p = [gesture locationInView:self.boardView];
-        NSLog(@"( %f, %f )", p.x, p.y);
         if ([self.oneBrain ifPoint:p insideRect:self.smartRect]) {
             //self.currentStuff = self.smartRect;
             self.currentStuff = 1;
+        }
+        else if ([self.oneBrain ifPoint:p insideRect:self.moneyRect]) {
+            self.currentStuff = 2;
         }
         else {
             self.currentStuff = 0;
@@ -114,6 +136,14 @@
         return CGRectMake(self.boxRect.origin.x + 120, self.boxRect.origin.y + 100, self.smartRect.size.width*0.6, self.smartRect.size.height*0.6);
     }
     return self.smartRect;
+}
+
+- (CGRect)moneyLocInBoardView:(BoardView *)sender
+{
+    if (self.moneyIsInsideBox) {
+        return CGRectMake(self.boxRect.origin.x + 250, self.boxRect.origin.y + 80, self.moneyRect.size.width*0.6, self.moneyRect.size.height*0.6);
+    }
+    return self.moneyRect;
 }
 
 - (CGRect)boxLocInBoardView:(BoardView *)sender

@@ -11,20 +11,29 @@
 @interface BoardView()
 
 @property (nonatomic, weak) UIImage *boxImage;
+@property (nonatomic) CGRect boxRect;
 @property (nonatomic, weak) UIImage *smartImage;
+@property (nonatomic) CGRect smartRect;
+@property (nonatomic, weak) UIImage *moneyImage;
+@property (nonatomic) CGRect moneyRect;
 
 @end
 
 @implementation BoardView
 
 @synthesize boxImage = _boxImage;
+@synthesize boxRect = _boxRect;
 @synthesize smartImage = _smartImage;
+@synthesize smartRect = _smartRect;
+@synthesize moneyImage = _moneyImage;
+@synthesize moneyRect = _moneyRect;
 
 @synthesize dataSource = _dataSource;
 
 - (UIImage *)boxImage
 {
     if (!_boxImage) {
+        self.boxRect = [self.dataSource boxLocInBoardView:self];;
         _boxImage = [UIImage imageNamed:@"box.jpg"];
     }
     return _boxImage;
@@ -33,50 +42,44 @@
 - (UIImage *)smartImage
 {
     if (!_smartImage) {
+        self.smartRect = [self.dataSource smartLocInBoardView:self];;
         _smartImage = [UIImage imageNamed:@"smart.jpg"];
     }
     return _smartImage;
 }
-/*
--(void)setSmartRect:(CGRect)smartRect
+
+- (UIImage *)moneyImage
 {
-    //if (_smartRect != smartRect) {
-        _smartRect = smartRect;
-        [self setNeedsDisplay];
-    //}
+    if (!_moneyImage) {
+        self.moneyRect = [self.dataSource moneyLocInBoardView:self];;
+        _moneyImage = [UIImage imageNamed:@"money.jpg"];
+    }
+    return _moneyImage;
 }
 
--(void)setSetRect:(CGRect)setRect
-{
-    _setRect = setRect;
-    [self setNeedsDisplay];
-}
-*/
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        NSLog(@"initWithFrame");
+        //NSLog(@"initWithFrame");
     }
     return self;
 }
-/*
-- (void)pan:(UIPanGestureRecognizer *)gesture
-{
-    if ((gesture.state == UIGestureRecognizerStateChanged) ||
-        (gesture.state == UIGestureRecognizerStateEnded)) {
-        CGPoint translation = [gesture translationInView:self];
-        self.smartRect = CGRectMake(self.smartRect.origin.x + translation.x, self.smartRect.origin.y + translation.y, self.smartRect.size.width, self.smartRect.size.height);
-        [gesture setTranslation:CGPointZero inView:self];
-    }
-}
-*/
+
 - (void)drawRect:(CGRect)rect
 {
-    //[self.boxImage drawInRect:self.setRect];
-    //[self.smartImage drawInRect:self.smartRect];
-    [self.boxImage drawInRect:[self.dataSource boxLocInBoardView:self]];
-    [self.smartImage drawInRect:[self.dataSource smartLocInBoardView:self]];
+    CGRect r = [self.dataSource boxLocInBoardView:self];
+    //if (!CGRectEqualToRect(r, self.boxRect)) {
+        [self.boxImage drawInRect:r];        
+    //}
+    r = [self.dataSource moneyLocInBoardView:self];
+    if (!CGRectEqualToRect(r, self.smartRect)) {
+        [self.moneyImage drawInRect:r];
+    }
+    r = [self.dataSource smartLocInBoardView:self];
+    if (!CGRectEqualToRect(r, self.moneyRect)) {
+        [self.smartImage drawInRect:r];
+    }
 
 }
 

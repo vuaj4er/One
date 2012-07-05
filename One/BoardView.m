@@ -43,7 +43,7 @@
 {
     if (!_smartImage) {
         self.smartRect = [self.dataSource smartLocInBoardView:self];;
-        _smartImage = [UIImage imageNamed:@"smart.jpg"];
+        _smartImage = [UIImage imageNamed:@"smart.png"];
     }
     return _smartImage;
 }
@@ -52,7 +52,7 @@
 {
     if (!_moneyImage) {
         self.moneyRect = [self.dataSource moneyLocInBoardView:self];;
-        _moneyImage = [UIImage imageNamed:@"money.jpg"];
+        _moneyImage = [UIImage imageNamed:@"money.png"];
     }
     return _moneyImage;
 }

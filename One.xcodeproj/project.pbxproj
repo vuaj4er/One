@@ -26,6 +26,8 @@
 		CE211AEC15A08C9400BEAB03 /* OneBrain.m in Sources */ = {isa = PBXBuildFile; fileRef = CE211AEB15A08C9400BEAB03 /* OneBrain.m */; };
 		CE211AF415A5D91900BEAB03 /* draw.png in Resources */ = {isa = PBXBuildFile; fileRef = CE211AF315A5D91900BEAB03 /* draw.png */; };
 		CE211AF615A5D94400BEAB03 /* book.png in Resources */ = {isa = PBXBuildFile; fileRef = CE211AF515A5D94400BEAB03 /* book.png */; };
+		CE8B4D0315A5DBBB00006E54 /* smart.png in Resources */ = {isa = PBXBuildFile; fileRef = CE8B4D0215A5DBBB00006E54 /* smart.png */; };
+		CE8B4D0615A5DBCC00006E54 /* money.png in Resources */ = {isa = PBXBuildFile; fileRef = CE8B4D0515A5DBCC00006E54 /* money.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,8 @@
 		CE211AEB15A08C9400BEAB03 /* OneBrain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneBrain.m; sourceTree = "<group>"; };
 		CE211AF315A5D91900BEAB03 /* draw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = draw.png; sourceTree = "<group>"; };
 		CE211AF515A5D94400BEAB03 /* book.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = book.png; sourceTree = "<group>"; };
+		CE8B4D0215A5DBBB00006E54 /* smart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smart.png; sourceTree = "<group>"; };
+		CE8B4D0515A5DBCC00006E54 /* money.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = money.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +135,8 @@
 				CE211AB915A0066F00BEAB03 /* MainStoryboard_iPad.storyboard */,
 				CE211ABC15A0066F00BEAB03 /* ViewController.h */,
 				CE211AE815A0506A00BEAB03 /* box.jpg */,
+				CE8B4D0215A5DBBB00006E54 /* smart.png */,
+				CE8B4D0515A5DBCC00006E54 /* money.png */,
 				CE211AF315A5D91900BEAB03 /* draw.png */,
 				CE211AF515A5D94400BEAB03 /* book.png */,
 				CE211ABD15A0066F00BEAB03 /* ViewController.m */,
@@ -249,6 +255,8 @@
 				CE211AE915A0506A00BEAB03 /* box.jpg in Resources */,
 				CE211AF415A5D91900BEAB03 /* draw.png in Resources */,
 				CE211AF615A5D94400BEAB03 /* book.png in Resources */,
+				CE8B4D0315A5DBBB00006E54 /* smart.png in Resources */,
+				CE8B4D0615A5DBCC00006E54 /* money.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

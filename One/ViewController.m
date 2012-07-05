@@ -141,7 +141,7 @@
 - (CGRect)moneyLocInBoardView:(BoardView *)sender
 {
     if (self.moneyIsInsideBox) {
-        return CGRectMake(self.boxRect.origin.x + 250, self.boxRect.origin.y + 80, self.moneyRect.size.width*0.6, self.moneyRect.size.height*0.6);
+        return CGRectMake(self.boxRect.origin.x + 260, self.boxRect.origin.y + 120, self.moneyRect.size.width*0.6, self.moneyRect.size.height*0.6);
     }
     return self.moneyRect;
 }

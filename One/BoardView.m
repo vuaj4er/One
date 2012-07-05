@@ -16,6 +16,10 @@
 @property (nonatomic) CGRect smartRect;
 @property (nonatomic, weak) UIImage *moneyImage;
 @property (nonatomic) CGRect moneyRect;
+@property (nonatomic, weak) UIImage *bookImage;
+@property (nonatomic) CGRect bookRect;
+@property (nonatomic, weak) UIImage *drawImage;
+@property (nonatomic) CGRect drawRect;
 
 @end
 
@@ -27,6 +31,10 @@
 @synthesize smartRect = _smartRect;
 @synthesize moneyImage = _moneyImage;
 @synthesize moneyRect = _moneyRect;
+@synthesize bookImage = _bookImage;
+@synthesize bookRect = _bookRect;
+@synthesize drawImage = _drawImage;
+@synthesize drawRect = _drawRect;
 
 @synthesize dataSource = _dataSource;
 

@@ -12,9 +12,12 @@
 
 @protocol BoardViewDataSource <NSObject>
 
+- (void)locSetToDefault;
+- (CGRect)boxLocInBoardView:(BoardView *)sender;
 - (CGRect)smartLocInBoardView:(BoardView *)sender;
 - (CGRect)moneyLocInBoardView:(BoardView *)sender;
-- (CGRect)boxLocInBoardView:(BoardView *)sender;
+- (CGRect)bookLocInBoardView:(BoardView *)sender;
+- (CGRect)drawLocInBoardView:(BoardView *)sender;
 
 @end
 

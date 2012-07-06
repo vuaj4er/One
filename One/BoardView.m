@@ -38,6 +38,29 @@
 
 @synthesize dataSource = _dataSource;
 
+- (void)setup
+{
+    NSLog(@"setup");
+    [self.dataSource locSetToDefault];
+    self.contentMode = UIViewContentModeRedraw; 
+}
+
+- (void)awakeFromNib
+{
+    NSLog(@"awakeFromNib");
+    [self setup];
+}
+
+- (id)initWithFrame:(CGRect)frame
+{
+    NSLog(@"initWithFrame");
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self setup];
+    }
+    return self;
+}
+
 - (UIImage *)boxImage
 {
     if (!_boxImage) {
@@ -65,13 +88,22 @@
     return _moneyImage;
 }
 
-- (id)initWithFrame:(CGRect)frame
+- (UIImage *)bookImage
 {
-    self = [super initWithFrame:frame];
-    if (self) {
-        //NSLog(@"initWithFrame");
+    if (!_bookImage) {
+        self.bookRect = [self.dataSource bookLocInBoardView:self];;
+        _bookImage = [UIImage imageNamed:@"book.png"];
     }
-    return self;
+    return _bookImage;
+}
+
+- (UIImage *)drawImage
+{
+    if (!_drawImage) {
+        self.drawRect = [self.dataSource drawLocInBoardView:self];;
+        _drawImage = [UIImage imageNamed:@"draw.png"];
+    }
+    return _drawImage;
 }
 
 - (void)drawRect:(CGRect)rect
@@ -81,13 +113,21 @@
         [self.boxImage drawInRect:r];        
     //}
     r = [self.dataSource moneyLocInBoardView:self];
-    if (!CGRectEqualToRect(r, self.smartRect)) {
+    //if (!CGRectEqualToRect(r, self.moneyRect)) {
         [self.moneyImage drawInRect:r];
-    }
+    //}
     r = [self.dataSource smartLocInBoardView:self];
-    if (!CGRectEqualToRect(r, self.moneyRect)) {
+    //if (!CGRectEqualToRect(r, self.smartRect)) {
         [self.smartImage drawInRect:r];
-    }
+    //}
+    r = [self.dataSource bookLocInBoardView:self];
+    //if (!CGRectEqualToRect(r, self.bookRect)) {
+        [self.bookImage drawInRect:r];
+    //}
+    r = [self.dataSource drawLocInBoardView:self];
+    //if (!CGRectEqualToRect(r, self.drawRect)) {
+        [self.drawImage drawInRect:r];
+    //}
 
 }
 

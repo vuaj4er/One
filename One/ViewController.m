@@ -14,6 +14,7 @@
 
 @property (nonatomic, strong) IBOutlet BoardView *boardView;
 @property (nonatomic, strong) OneBrain *oneBrain;
+@property (weak, nonatomic) IBOutlet UILabel *oneLabel;
 
 //@property (nonatomic) CGRect currentStuff;
 @property (nonatomic) int currentStuff;
@@ -35,6 +36,7 @@
 //@synthesize smartImage = _smartImage;
 @synthesize boardView = _boardView;
 @synthesize oneBrain = _oneBrain;
+@synthesize oneLabel = _oneLabel;
 
 @synthesize currentStuff = _currentStuff;
 @synthesize boxRect = _boxRect;
@@ -75,6 +77,9 @@
 {
     if (!CGRectEqualToRect(_smartRect, smartRect)) {
         if ([self.oneBrain ifStuff:smartRect insideBox:self.boxRect]) {
+            if (self.smartIsInsideBox == NO) {
+                self.oneLabel.text = @"將十分聰明";
+            }
             self.smartIsInsideBox = YES;
         }
         _smartRect = smartRect;
@@ -86,6 +91,9 @@
 {
     if (!CGRectEqualToRect(_moneyRect, moneyRect)) {
         if ([self.oneBrain ifStuff:moneyRect insideBox:self.boxRect]) {
+            if (self.moneyIsInsideBox == NO) {
+                self.oneLabel.text = @"將通曉經商";
+            }
             self.moneyIsInsideBox = YES;
         }
         _moneyRect = moneyRect;
@@ -97,6 +105,9 @@
 {
     if (!CGRectEqualToRect(_bookRect, bookRect)) {
         if ([self.oneBrain ifStuff:bookRect insideBox:self.boxRect]) {
+            if (self.bookIsInsideBox == NO) {
+                self.oneLabel.text = @"將善於讀書";
+            }
             self.bookIsInsideBox = YES;
         }
         _bookRect = bookRect;
@@ -108,6 +119,9 @@
 {
     if (!CGRectEqualToRect(_drawRect, drawRect)) {
         if ([self.oneBrain ifStuff:drawRect insideBox:self.boxRect]) {
+            if (self.drawIsInsideBox == NO) {
+                self.oneLabel.text = @"將精於藝術";
+            }
             self.drawIsInsideBox = YES;
         }
         _drawRect = drawRect;
@@ -138,6 +152,7 @@
         self.bookRect = CGRectMake(self.smartRect.origin.x + 2*len, self.smartRect.origin.y, self.bookRect.size.width, self.bookRect.size.height);
         self.drawRect = CGRectMake(self.smartRect.origin.x + 3*len, self.smartRect.origin.y, self.drawRect.size.width, self.drawRect.size.height);
     }
+    self.oneLabel.text = @"";
 }
 
 - (void)pan:(UIPanGestureRecognizer *)gesture
@@ -221,7 +236,12 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
+    //NSLog(@"autorotate");
     return YES;
 }
 
+- (void)viewDidUnload {
+    [self setOneLabel:nil];
+    [super viewDidUnload];
+}
 @end

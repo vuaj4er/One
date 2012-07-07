@@ -40,20 +40,20 @@
 
 - (void)setup
 {
-    NSLog(@"setup");
-    [self.dataSource locSetToDefault];
+    //NSLog(@"setup");
+    //[self.dataSource locSetToDefault];
     self.contentMode = UIViewContentModeRedraw; 
 }
 
 - (void)awakeFromNib
 {
-    NSLog(@"awakeFromNib");
+    //NSLog(@"awakeFromNib");
     [self setup];
 }
 
 - (id)initWithFrame:(CGRect)frame
 {
-    NSLog(@"initWithFrame");
+    //NSLog(@"initWithFrame");
     self = [super initWithFrame:frame];
     if (self) {
         [self setup];

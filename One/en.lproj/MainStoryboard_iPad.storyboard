@@ -34,6 +34,13 @@
                                             <action selector="resetPress:" destination="2" eventType="touchUpInside" id="wOG-Bo-fef"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" id="Do9-1X-c0D">
+                                        <rect key="frame" x="20" y="435" width="728" height="66"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
@@ -42,6 +49,7 @@
                     </view>
                     <connections>
                         <outlet property="boardView" destination="Hkh-Fi-p4d" id="Aag-ly-rtE"/>
+                        <outlet property="oneLabel" destination="Do9-1X-c0D" id="LW9-qi-TTp"/>
                     </connections>
                 </viewController>
             </objects>
@@ -59,6 +67,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="boardView" candidateClass="BoardView"/>
+                <relationship kind="outlet" name="oneLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
     </classes>
